@@ -20,7 +20,7 @@ export const OfferReveal = () => {
   }, []);
 
   const benefits = [
-    { icon: Images, label: "Photos privées" },
+    { icon: Images, label: "+150 photos et vidéos" },
     { icon: Sparkles, label: "Contenu exclusif" },
     { icon: Ghost, label: "Snap privé" },
     { icon: Send, label: "Accès Telegram" },

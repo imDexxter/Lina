@@ -25,6 +25,11 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Visiteur social (Instagram/Snap/TikTok) sur smartphone, veut un aperçu rapide et un accès fluide.
 - Lina (créatrice) : connectera paiement + Telegram plus tard.
 
+## Implémenté (09/08/2026 — update catalogue + Telegram)
+- Telegram réel branché : https://t.me/mariaalpbbbbot (bouton /success, surchargeable via REACT_APP_TELEGRAM_URL).
+- Catalogue confirmé réel par l'utilisatrice : mention « +150 photos et vidéos » affichée (value stack, avantages offre, stats profil).
+- 4 nouvelles photos intégrées (grey romper, close-up lit, purple CK, story recadrée sans UI Instagram) ; doublon écarté. Galerie : 14 publications uniques, 8 visibles / 6 verrouillées.
+
 ## Implémenté (09/08/2026 — update UI baddie)
 - Galerie : 10 cartes uniques (6 visibles / 4 verrouillées), plus de répétitions — 6 crops dérivés générés (lina-c1..c6) sans retouche du visage/corps. Badges roses « nouveau » / « privé » / « aperçu vidéo ».
 - Direction « girly/baddie » : accent rose #FF5C8D (blush) — CTAs en gradient rose avec glow, loader avec anneau rose + pourcentage exact 0→100 %, prix rose avec halo, icônes/checks roses, badge vérifié rose, explosion de cœurs sur /success, pulse du CTA sticky.

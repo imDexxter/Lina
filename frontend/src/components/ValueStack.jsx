@@ -3,7 +3,7 @@ import { offer } from "../lib/config";
 import { FadeUp } from "./Reveal";
 
 const ITEMS = [
-  { n: "01", icon: Images, title: "Photos privées", text: "Celles que je ne poste nulle part." },
+  { n: "01", icon: Images, title: "+150 photos et vidéos", text: "Déjà en ligne, bien hot, rien de censuré." },
   { n: "02", icon: Sparkles, title: "Contenu exclusif", text: "Coulisses et nouveautés en avant-première." },
   { n: "03", icon: Ghost, title: "Snap privé", text: "Un accès direct à mon quotidien." },
   { n: "04", icon: Send, title: "Accès Telegram", text: "Mon canal privé, réservé aux membres." },

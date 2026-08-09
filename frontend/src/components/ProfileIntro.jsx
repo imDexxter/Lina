@@ -2,7 +2,7 @@ import { Images, Clapperboard, KeyRound } from "lucide-react";
 import { FadeUp } from "./Reveal";
 
 const STATS = [
-  { icon: Images, label: "Photos privées" },
+  { icon: Images, label: "+150 photos & vidéos" },
   { icon: Clapperboard, label: "Vidéos / previews" },
   { icon: KeyRound, label: "Accès privé" },
 ];

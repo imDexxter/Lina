@@ -4,15 +4,19 @@ import { FadeUp } from "./Reveal";
 
 export const GALLERY_ITEMS = [
   { id: 1, src: ASSETS.lina3, type: "photo", ratio: "3/4", tag: "nouveau" },
-  { id: 2, src: ASSETS.lina2, type: "locked", ratio: "3/4" },
+  { id: 2, src: ASSETS.n1, type: "locked", ratio: "3/4" },
   { id: 3, src: ASSETS.c2, type: "photo", ratio: "1/1" },
   { id: 4, src: ASSETS.lina1, type: "photo", ratio: "4/5" },
   { id: 5, src: ASSETS.c4, type: "video", ratio: "3/4" },
-  { id: 6, src: ASSETS.lina4, type: "photo", ratio: "3/4" },
+  { id: 6, src: ASSETS.n2, type: "photo", ratio: "3/4", tag: "nouveau" },
   { id: 7, src: ASSETS.c5, type: "locked", ratio: "1/1" },
-  { id: 8, src: ASSETS.c1, type: "photo", ratio: "3/4" },
+  { id: 8, src: ASSETS.n3, type: "photo", ratio: "1/1" },
   { id: 9, src: ASSETS.c6, type: "locked", ratio: "3/4" },
-  { id: 10, src: ASSETS.c3, type: "photo", ratio: "1/1", tag: "nouveau" },
+  { id: 10, src: ASSETS.lina4, type: "photo", ratio: "3/4" },
+  { id: 11, src: ASSETS.c1, type: "photo", ratio: "3/4" },
+  { id: 12, src: ASSETS.n5, type: "locked", ratio: "3/4" },
+  { id: 13, src: ASSETS.c3, type: "photo", ratio: "1/1" },
+  { id: 14, src: ASSETS.lina2, type: "locked", ratio: "4/5" },
 ];
 
 export const ContentGrid = ({ onOpenPhoto, onOpenLocked, onOpenVideo }) => {

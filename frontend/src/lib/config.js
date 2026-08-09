@@ -4,7 +4,7 @@ export const offer = {
   recurringPrice: null,
   recurringInterval: null,
   introDuration: null,
-  telegramUrl: process.env.REACT_APP_TELEGRAM_URL || "#",
+  telegramUrl: process.env.REACT_APP_TELEGRAM_URL || "https://t.me/mariaalpbbbbot",
   snapUrl: process.env.REACT_APP_SNAP_URL || "#",
   includesCall: true,
 };
@@ -31,6 +31,10 @@ export const ASSETS = {
   c4: "/assets/lina-c4.jpg",
   c5: "/assets/lina-c5.jpg",
   c6: "/assets/lina-c6.jpg",
+  n1: "/assets/lina-n1.jpg",
+  n2: "/assets/lina-n2.jpg",
+  n3: "/assets/lina-n3.jpg",
+  n5: "/assets/lina-n5.jpg",
 };
 
 const PROFILE_KEY = "lina_profile";
