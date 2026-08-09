@@ -31,6 +31,8 @@ export const ASSETS = {
   c4: "/assets/lina-c4.jpg",
   c5: "/assets/lina-c5.jpg",
   c6: "/assets/lina-c6.jpg",
+  c7: "/assets/lina-c7.jpg",
+  c8: "/assets/lina-c8.jpg",
   n1: "/assets/lina-n1.jpg",
   n2: "/assets/lina-n2.jpg",
   n3: "/assets/lina-n3.jpg",
