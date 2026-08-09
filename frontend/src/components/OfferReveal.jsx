@@ -24,7 +24,7 @@ export const OfferReveal = () => {
     { icon: Sparkles, label: "Contenu exclusif" },
     { icon: Ghost, label: "Snap privé" },
     { icon: Send, label: "Accès Telegram" },
-    ...(offer.includesCall ? [{ icon: Phone, label: "Appel privé offert" }] : []),
+    ...(offer.includesCall ? [{ icon: Phone, label: "Appel privé de 20 min offert" }] : []),
   ];
 
   return (
@@ -53,6 +53,19 @@ export const OfferReveal = () => {
         >
           ton accès est prêt{profile?.username ? `, ${profile.username}` : ""}
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45, delay: 0.35, type: "spring", damping: 18 }}
+          data-testid="offer-highlight-pill"
+          className="mt-4 flex items-center gap-2 rounded-full border border-blush/40 bg-blush/10 px-4 py-2"
+        >
+          <Phone className="h-3.5 w-3.5 text-blush" strokeWidth={2} />
+          <span className="text-xs font-semibold text-blush">
+            Mon snap privé + un appel de 20 min avec moi — inclus
+          </span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 18 }}

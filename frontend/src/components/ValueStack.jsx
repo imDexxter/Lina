@@ -45,13 +45,13 @@ export const ValueStack = () => (
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-semibold">Appel privé offert</h3>
+              <h3 className="text-sm font-semibold">Appel privé de 20 min offert</h3>
               <span className="rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/80">
                 inclus
               </span>
             </div>
             <p className="mt-0.5 text-xs leading-relaxed text-dim">
-              Un moment en direct avec moi, disponibilité selon conditions indiquées lors de la réservation.
+              20 minutes en direct avec moi, disponibilité selon conditions indiquées lors de la réservation.
             </p>
           </div>
         </div>

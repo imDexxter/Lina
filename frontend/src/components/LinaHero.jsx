@@ -77,7 +77,8 @@ export const LinaHero = () => {
             transition={{ duration: 0.5, delay: 0.9 }}
             className="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/45"
           >
-            Accès privé <span aria-hidden="true">•</span> quelques secondes
+            Accès privé <span aria-hidden="true">•</span> quelques secondes <span aria-hidden="true">•</span>{" "}
+            <span className="text-blush/80">snap + appel 20 min inclus</span>
           </motion.p>
         </div>
       </div>
