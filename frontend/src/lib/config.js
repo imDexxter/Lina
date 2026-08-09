@@ -5,7 +5,7 @@ export const offer = {
   recurringInterval: null,
   introDuration: null,
   telegramUrl: process.env.REACT_APP_TELEGRAM_URL || "https://t.me/mariaalpbbbbot",
-  snapUrl: process.env.REACT_APP_SNAP_URL || "#",
+  snapUrl: process.env.REACT_APP_SNAP_URL || "https://www.snapchat.com/add/marina_prvvv",
   includesCall: true,
 };
 

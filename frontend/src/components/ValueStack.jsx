@@ -1,12 +1,12 @@
-import { Images, Sparkles, Ghost, Send, Phone } from "lucide-react";
+import { Images, Sparkles, Ghost, Send, Phone, ArrowUpRight } from "lucide-react";
 import { offer } from "../lib/config";
 import { FadeUp } from "./Reveal";
 
 const ITEMS = [
   { n: "01", icon: Images, title: "+150 photos et vidéos", text: "Déjà en ligne, bien hot, rien de censuré." },
   { n: "02", icon: Sparkles, title: "Contenu exclusif", text: "Coulisses et nouveautés en avant-première." },
-  { n: "03", icon: Ghost, title: "Snap privé", text: "Un accès direct à mon quotidien." },
-  { n: "04", icon: Send, title: "Accès Telegram", text: "Mon canal privé, réservé aux membres." },
+  { n: "03", icon: Ghost, title: "Snap privé", text: "Mon quotidien en direct : @marina_prvvv", href: offer.snapUrl },
+  { n: "04", icon: Send, title: "Accès Telegram", text: "Mon canal privé, réservé aux membres.", href: offer.telegramUrl },
 ];
 
 export const ValueStack = () => (
@@ -16,23 +16,35 @@ export const ValueStack = () => (
       <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">Avec ton accès</h2>
     </FadeUp>
     <div className="mt-8 grid grid-cols-2 gap-2.5">
-      {ITEMS.map((it, i) => (
-        <FadeUp key={it.n} delay={i * 0.07}>
-          <div
-            data-testid={`value-card-${it.n}`}
-            className="flex h-full flex-col gap-6 rounded-[18px] border border-line bg-surface p-4 transition-colors duration-300 hover:border-white/15"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-display text-[11px] font-semibold text-blush/60">{it.n}</span>
-              <it.icon className="h-4 w-4 text-blush" strokeWidth={1.75} />
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold">{it.title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-dim">{it.text}</p>
-            </div>
-          </div>
-        </FadeUp>
-      ))}
+      {ITEMS.map((it, i) => {
+        const Tag = it.href ? "a" : "div";
+        const linkProps = it.href
+          ? { href: it.href, target: "_blank", rel: "noopener noreferrer" }
+          : {};
+        return (
+          <FadeUp key={it.n} delay={i * 0.07}>
+            <Tag
+              data-testid={`value-card-${it.n}`}
+              {...linkProps}
+              className="group relative flex h-full flex-col gap-6 rounded-[18px] border border-line bg-surface p-4 transition-colors duration-300 hover:border-blush/40"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-display text-[11px] font-semibold text-blush/60">{it.n}</span>
+                <it.icon className="h-4 w-4 text-blush" strokeWidth={1.75} />
+              </div>
+              <div>
+                <h3 className="flex items-center gap-1 text-sm font-semibold">
+                  {it.title}
+                  {it.href && (
+                    <ArrowUpRight className="h-3 w-3 text-white/40 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  )}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-dim">{it.text}</p>
+              </div>
+            </Tag>
+          </FadeUp>
+        );
+      })}
     </div>
     {offer.includesCall && (
       <FadeUp delay={0.15}>

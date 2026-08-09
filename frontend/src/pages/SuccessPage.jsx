@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Heart, Loader2 } from "lucide-react";
+import { Heart, Loader2, Ghost } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { offer } from "../lib/config";
 
@@ -116,6 +116,16 @@ export default function SuccessPage() {
               className="btn-cta block"
             >
               ouvrir mon espace privé
+            </a>
+            <a
+              data-testid="success-snap-button"
+              href={offer.snapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-line py-3.5 text-sm font-medium text-white/85 transition-colors hover:border-blush/40 hover:bg-white/5"
+            >
+              <Ghost className="h-4 w-4 text-blush" />
+              ajoute mon snap privé
             </a>
             <a
               data-testid="success-home-link"
