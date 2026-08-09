@@ -4,17 +4,36 @@ import { ArrowLeft, ShieldCheck, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { offer, formatPrice, ASSETS, loadProfile } from "../lib/config";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 export default function CheckoutPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const profile = loadProfile();
 
-  // TODO PAYMENT PROVIDER: créer ici la session de paiement (Stripe/PayPal) et rediriger
-  // vers l'URL de checkout du prestataire. Pour la V1, redirection simulée vers /success.
   const startCheckout = async () => {
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    navigate("/success");
+    setError(null);
+    try {
+      const res = await fetch(`${BACKEND_URL}/api/payments/checkout`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lookup_key: "lina_acces_decouverte",
+          quantity: 1,
+          origin_url: window.location.origin,
+          username: profile?.username || null,
+          email: profile?.email || null,
+        }),
+      });
+      if (!res.ok) throw new Error("checkout failed");
+      const data = await res.json();
+      window.location.href = data.checkout_url;
+    } catch {
+      setError("Impossible d'ouvrir le paiement. Réessaie dans un instant.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,9 +96,14 @@ export default function CheckoutPage() {
 
         <p className="mt-4 flex items-start gap-2 text-[11px] leading-relaxed text-white/40">
           <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-          Paiement simulé pour cette version — aucun débit réel. Le prestataire de paiement sera
-          connecté prochainement.
+          Paiement sécurisé par Stripe. Accès immédiat après confirmation.
         </p>
+
+        {error && (
+          <p data-testid="checkout-error" className="mt-3 text-xs text-red-300/90">
+            {error}
+          </p>
+        )}
 
         <div className="mt-auto pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-8">
           <button

@@ -18,7 +18,7 @@ export const REFERENCE_PRICE = offer.referencePrice;
 export const formatPrice = (v) => `${v.toFixed(2).replace(".", ",")} €`;
 
 export const ASSETS = {
-  hero: "/assets/lina-1.jpg",
+  hero: "/assets/lina-5.jpg",
   avatar: "/assets/lina-3.jpg",
   lina1: "/assets/lina-1.jpg",
   lina2: "/assets/lina-2.jpg",

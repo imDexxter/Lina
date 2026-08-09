@@ -25,8 +25,16 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Visiteur social (Instagram/Snap/TikTok) sur smartphone, veut un aperçu rapide et un accès fluide.
 - Lina (créatrice) : connectera paiement + Telegram plus tard.
 
+## Implémenté (09/08/2026 — update Stripe)
+- Paiement réel branché : sandbox Stripe claimable (compte FR, produit « Lina — Accès Découverte », prix one-time 1,03 €, lookup_key `lina_acces_decouverte`). Routes backend : POST /api/payments/checkout, GET /api/payments/status/{session_id} (polling + fallback Stripe), POST /api/stripe/webhook (idempotent). Transactions tracées dans Mongo `payment_transactions`.
+- Tax mode sélectionné : Stripe gère tout (taxe + conformité), fallback automatique vers « Stripe calcule seulement » si inéligible.
+- /success vérifie le paiement (session_id) avant d'afficher le bouton Telegram ; états verifying / paid / pending.
+- Test e2e réussi : paiement carte 4242 4242 4242 4242 → redirect /success → payment_status "paid" confirmé en base.
+- Hero changée : lina-5 (bibliothèque, regard caméra, plus suggestive).
+- Onboarding Stripe (claim) : voir onboarding_url dans /tmp/sandbox.json — [lien partagé au user dans le résumé].
+
 ## Backlog
-- P0 : brancher un vrai prestataire de paiement (Stripe) dans startCheckout() + webhook → Telegram.
+- P0 : claimer le compte Stripe (onboarding_url) + KYC avant déploiement ; les clés passent en live automatiquement après approbation.
 - P0 : fournir TELEGRAM_URL / SNAP_URL réels (env REACT_APP_TELEGRAM_URL, REACT_APP_SNAP_URL).
 - P1 : pages Conditions / Confidentialité / Support réelles.
 - P1 : auth Supabase derrière saveProfile (magic link email).
