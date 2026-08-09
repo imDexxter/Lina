@@ -6,17 +6,15 @@ import { Marquee } from "../components/Marquee";
 import { ContentGrid } from "../components/ContentGrid";
 import { LockedContentSheet } from "../components/LockedContentSheet";
 import { VideoPreviewSheet } from "../components/VideoPreviewSheet";
-import { Lightbox } from "../components/Lightbox";
 import { ValueStack } from "../components/ValueStack";
 import { UnlockCTA } from "../components/UnlockCTA";
 import { StickyUnlockBar } from "../components/StickyUnlockBar";
 import { Footer } from "../components/Footer";
 
 export default function HomePage() {
-  const [photo, setPhoto] = useState(null);
   const [locked, setLocked] = useState(null);
   const [video, setVideo] = useState(null);
-  const modalOpen = Boolean(photo || locked || video);
+  const modalOpen = Boolean(locked || video);
 
   useEffect(() => {
     document.body.style.overflow = modalOpen ? "hidden" : "";
@@ -31,15 +29,10 @@ export default function HomePage() {
       <LinaHero />
       <ProfileIntro />
       <Marquee />
-      <ContentGrid
-        onOpenPhoto={setPhoto}
-        onOpenLocked={setLocked}
-        onOpenVideo={setVideo}
-      />
+      <ContentGrid onOpenLocked={setLocked} onOpenVideo={setVideo} />
       <ValueStack />
       <UnlockCTA />
       <Footer />
-      <Lightbox item={photo} onClose={() => setPhoto(null)} />
       <LockedContentSheet item={locked} onClose={() => setLocked(null)} />
       <VideoPreviewSheet item={video} onClose={() => setVideo(null)} />
       <StickyUnlockBar hidden={modalOpen} />

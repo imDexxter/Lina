@@ -37,6 +37,11 @@ export const ASSETS = {
   n2: "/assets/lina-n2.jpg",
   n3: "/assets/lina-n3.jpg",
   n5: "/assets/lina-n5.jpg",
+  m1: "/assets/lina-m1.jpg",
+  m2: "/assets/lina-m2.jpg",
+  m3: "/assets/lina-m3.jpg",
+  m4: "/assets/lina-m4.jpg",
+  m5: "/assets/lina-m5.jpg",
 };
 
 const PROFILE_KEY = "lina_profile";

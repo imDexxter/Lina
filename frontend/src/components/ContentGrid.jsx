@@ -3,28 +3,32 @@ import { ContentCard } from "./ContentCard";
 import { FadeUp } from "./Reveal";
 
 export const GALLERY_ITEMS = [
-  { id: 1, src: ASSETS.n2, type: "photo", ratio: "3/4", tag: "nouveau" },
-  { id: 2, src: ASSETS.lina2, type: "locked", ratio: "3/4" },
+  { id: 1, src: ASSETS.m3, type: "photo", ratio: "3/4", tag: "nouveau", caption: "J'avoue j'ai abusé sur celle là 🙊" },
+  { id: 2, src: ASSETS.n1, type: "video", ratio: "3/4", duration: "01:30" },
   { id: 3, src: ASSETS.lina4, type: "photo", ratio: "3/4" },
-  { id: 4, src: ASSETS.n1, type: "video", ratio: "3/4" },
-  { id: 5, src: ASSETS.n3, type: "photo", ratio: "1/1" },
+  { id: 4, src: ASSETS.lina2, type: "locked", ratio: "3/4" },
+  { id: 5, src: ASSETS.m5, type: "photo", ratio: "3/4", tag: "nouveau" },
   { id: 6, src: ASSETS.c7, type: "hard", ratio: "3/4" },
-  { id: 7, src: ASSETS.lina1, type: "photo", ratio: "3/4" },
-  { id: 8, src: ASSETS.lina5, type: "photo", ratio: "3/4", tag: "nouveau" },
-  { id: 9, src: ASSETS.n5, type: "locked", ratio: "3/4" },
-  { id: 10, src: ASSETS.c4, type: "video", ratio: "3/4" },
-  { id: 11, src: ASSETS.lina3, type: "photo", ratio: "3/4" },
-  { id: 12, src: ASSETS.c8, type: "hard", ratio: "1/1" },
-  { id: 13, src: ASSETS.c5, type: "hard", ratio: "3/4" },
-  { id: 14, src: ASSETS.hero, type: "fade", ratio: "3/4" },
+  { id: 7, src: ASSETS.n2, type: "photo", ratio: "3/4" },
+  { id: 8, src: ASSETS.n5, type: "locked", ratio: "3/4", caption: "Putain j'étais grave trempée là" },
+  { id: 9, src: ASSETS.n3, type: "photo", ratio: "1/1" },
+  { id: 10, src: ASSETS.m4, type: "video", ratio: "3/4", duration: "00:58" },
+  { id: 11, src: ASSETS.m2, type: "video", ratio: "3/4", duration: "01:12" },
+  { id: 12, src: ASSETS.m1, type: "hard", ratio: "3/4", caption: "Ma préf : demande d'un fan" },
+  { id: 13, src: ASSETS.lina1, type: "photo", ratio: "3/4" },
+  { id: 14, src: ASSETS.c4, type: "video", ratio: "3/4", duration: "00:47" },
+  { id: 15, src: ASSETS.lina5, type: "photo", ratio: "3/4" },
+  { id: 16, src: ASSETS.c8, type: "hard", ratio: "1/1" },
+  { id: 17, src: ASSETS.lina3, type: "photo", ratio: "3/4" },
+  { id: 18, src: ASSETS.c5, type: "hard", ratio: "3/4" },
+  { id: 19, src: ASSETS.hero, type: "fade", ratio: "16/10" },
 ];
 
-export const ContentGrid = ({ onOpenPhoto, onOpenLocked, onOpenVideo }) => {
+export const ContentGrid = ({ onOpenLocked, onOpenVideo }) => {
   const freeCount = GALLERY_ITEMS.filter((i) => i.type === "photo" || i.type === "fade").length;
 
   const handleOpen = (item) => {
-    if (item.type === "photo" || item.type === "fade") onOpenPhoto(item);
-    else if (item.type === "video") onOpenVideo(item);
+    if (item.type === "video") onOpenVideo(item);
     else onOpenLocked(item);
   };
 
