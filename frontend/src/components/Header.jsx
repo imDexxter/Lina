@@ -21,7 +21,7 @@ export const Header = () => {
     >
       <div className="mx-auto flex h-14 w-full max-w-[520px] items-center justify-between px-5">
         <a href="/" data-testid="header-logo" className="font-display text-lg font-bold tracking-tight">
-          lina.
+          lina<span className="text-blush">.</span>
         </a>
         <button
           data-testid="header-login-button"

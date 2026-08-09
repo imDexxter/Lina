@@ -43,15 +43,15 @@ export const LockedContentSheet = ({ item, onClose }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
             </div>
             <div className="px-6 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-1 text-center">
-              <div className="mx-auto -mt-10 mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/12 bg-surface-2 relative">
-                <Lock className="h-5 w-5 text-white" strokeWidth={1.75} />
+              <div className="mx-auto -mt-10 mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-blush/40 bg-surface-2 relative shadow-[0_0_28px_rgba(255,92,141,.3)]">
+                <Lock className="h-5 w-5 text-blush" strokeWidth={1.75} />
               </div>
               <h3 className="font-display text-lg font-semibold">Contenu privé</h3>
               <p className="mt-1.5 text-sm text-dim">Cette publication est réservée aux membres.</p>
               <button
                 data-testid="sheet-unlock-all-button"
                 onClick={() => navigate("/access")}
-                className="mt-6 w-full rounded-full bg-white py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink transition-transform duration-200 active:scale-[0.98]"
+                className="btn-cta mt-6 !py-3.5"
               >
                 Débloquer tout
               </button>

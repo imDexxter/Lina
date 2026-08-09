@@ -24,7 +24,7 @@ export const ProfileIntro = () => (
             data-testid={`profile-stat-${i}`}
             className="flex flex-col items-start gap-3 rounded-2xl border border-line bg-surface p-4"
           >
-            <s.icon className="h-4 w-4 text-white/70" strokeWidth={1.75} />
+            <s.icon className="h-4 w-4 text-blush" strokeWidth={1.75} />
             <span className="text-[11px] font-medium leading-tight text-white/75">{s.label}</span>
           </div>
         </FadeUp>

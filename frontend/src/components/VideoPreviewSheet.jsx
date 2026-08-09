@@ -66,8 +66,8 @@ export const VideoPreviewSheet = ({ item, onClose }) => {
                     transition={{ duration: 0.4 }}
                     className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/55 backdrop-blur-[6px]"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45">
-                      <Lock className="h-4 w-4 text-white" strokeWidth={2} />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-blush/40 bg-black/45 shadow-[0_0_26px_rgba(255,92,141,.35)]">
+                      <Lock className="h-4 w-4 text-blush" strokeWidth={2} />
                     </div>
                     <p className="text-xs text-white/80">aperçu terminé — contenu verrouillé</p>
                   </motion.div>
@@ -80,7 +80,7 @@ export const VideoPreviewSheet = ({ item, onClose }) => {
               <button
                 data-testid="video-sheet-unlock-button"
                 onClick={() => navigate("/access")}
-                className="mt-5 w-full rounded-full bg-white py-3.5 font-display text-sm font-bold uppercase tracking-wide text-ink transition-transform duration-200 active:scale-[0.98]"
+                className="btn-cta mt-5 !py-3.5"
               >
                 Débloquer tout
               </button>

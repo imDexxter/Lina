@@ -41,7 +41,7 @@ export const LinaHero = () => {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-display text-base font-semibold">Lina</span>
-                <BadgeCheck className="h-4 w-4 fill-white text-ink" aria-label="créatrice vérifiée" />
+                <BadgeCheck className="h-4 w-4 fill-blush text-ink" aria-label="créatrice vérifiée" />
               </div>
               <span className="text-xs text-dim">@lina</span>
             </div>
@@ -67,7 +67,7 @@ export const LinaHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
             whileTap={{ scale: 0.97 }}
-            className="mt-6 w-full rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink transition-transform duration-200"
+            className="btn-cta mt-6"
           >
             Débloquer mon contenu
           </motion.button>

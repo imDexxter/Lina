@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, animate, motion } from "framer-motion";
 import { ASSETS } from "../lib/config";
 
 const MESSAGES = ["création de ton accès…", "préparation du contenu privé…", "presque terminé…"];
@@ -8,12 +8,19 @@ const C = 2 * Math.PI * R;
 
 export const UnlockLoader = ({ onDone }) => {
   const [i, setI] = useState(0);
+  const [pct, setPct] = useState(0);
 
   useEffect(() => {
     const msg = setInterval(() => setI((v) => Math.min(v + 1, MESSAGES.length - 1)), 880);
+    const counter = animate(0, 100, {
+      duration: 2.55,
+      ease: "easeInOut",
+      onUpdate: (v) => setPct(Math.round(v)),
+    });
     const end = setTimeout(onDone, 2750);
     return () => {
       clearInterval(msg);
+      counter.stop();
       clearTimeout(end);
     };
   }, [onDone]);
@@ -28,15 +35,16 @@ export const UnlockLoader = ({ onDone }) => {
       className="flex flex-1 flex-col items-center justify-center px-6"
     >
       <div className="relative flex items-center justify-center">
-        <svg width="132" height="132" viewBox="0 0 132 132" className="-rotate-90">
+        <div className="absolute h-40 w-40 rounded-full bg-blush/15 blur-2xl" aria-hidden="true" />
+        <svg width="132" height="132" viewBox="0 0 132 132" className="-rotate-90 relative">
           <circle cx="66" cy="66" r={R} fill="none" stroke="rgba(255,255,255,.1)" strokeWidth="2" />
           <motion.circle
             cx="66"
             cy="66"
             r={R}
             fill="none"
-            stroke="#ffffff"
-            strokeWidth="2"
+            stroke="#FF5C8D"
+            strokeWidth="2.5"
             strokeLinecap="round"
             strokeDasharray={C}
             initial={{ strokeDashoffset: C }}
@@ -68,6 +76,9 @@ export const UnlockLoader = ({ onDone }) => {
           </motion.p>
         </AnimatePresence>
       </div>
+      <p data-testid="unlock-loader-percent" className="mt-3 font-display text-xs font-semibold tabular-nums text-blush">
+        {pct}%
+      </p>
     </motion.div>
   );
 };

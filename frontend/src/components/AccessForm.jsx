@@ -87,7 +87,7 @@ export const AccessForm = ({ onDone }) => {
         <button
           data-testid="access-continue-button"
           type="submit"
-          className="w-full rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink transition-transform duration-200 active:scale-[0.98]"
+          className="btn-cta"
         >
           Continuer
         </button>

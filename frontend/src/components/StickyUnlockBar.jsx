@@ -28,13 +28,15 @@ export const StickyUnlockBar = ({ hidden }) => {
           className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-[rgba(15,15,15,.92)] backdrop-blur-xl"
         >
           <div className="mx-auto w-full max-w-[520px] px-5 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3">
-            <button
+            <motion.button
               data-testid="sticky-unlock-button"
               onClick={() => navigate("/access")}
-              className="w-full rounded-full bg-white py-3.5 font-display text-sm font-bold text-ink transition-transform duration-200 active:scale-[0.98]"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+              className="btn-cta !py-3.5"
             >
               Débloquer • {formatPrice(offer.introPrice)}
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       )}

@@ -23,8 +23,8 @@ export const ValueStack = () => (
             className="flex h-full flex-col gap-6 rounded-[18px] border border-line bg-surface p-4 transition-colors duration-300 hover:border-white/15"
           >
             <div className="flex items-center justify-between">
-              <span className="font-display text-[11px] font-semibold text-white/30">{it.n}</span>
-              <it.icon className="h-4 w-4 text-white/60" strokeWidth={1.75} />
+              <span className="font-display text-[11px] font-semibold text-blush/60">{it.n}</span>
+              <it.icon className="h-4 w-4 text-blush" strokeWidth={1.75} />
             </div>
             <div>
               <h3 className="text-sm font-semibold">{it.title}</h3>
@@ -40,7 +40,7 @@ export const ValueStack = () => (
           data-testid="value-card-call"
           className="mt-2.5 flex items-center gap-4 rounded-[18px] border border-white/15 bg-gradient-to-r from-surface-2 to-surface p-4"
         >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-ink">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blush to-blush-soft text-white shadow-[0_6px_20px_rgba(255,92,141,.4)]">
             <Phone className="h-4 w-4" strokeWidth={2} />
           </div>
           <div className="min-w-0">

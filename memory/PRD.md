@@ -25,6 +25,11 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Visiteur social (Instagram/Snap/TikTok) sur smartphone, veut un aperçu rapide et un accès fluide.
 - Lina (créatrice) : connectera paiement + Telegram plus tard.
 
+## Implémenté (09/08/2026 — update UI baddie)
+- Galerie : 10 cartes uniques (6 visibles / 4 verrouillées), plus de répétitions — 6 crops dérivés générés (lina-c1..c6) sans retouche du visage/corps. Badges roses « nouveau » / « privé » / « aperçu vidéo ».
+- Direction « girly/baddie » : accent rose #FF5C8D (blush) — CTAs en gradient rose avec glow, loader avec anneau rose + pourcentage exact 0→100 %, prix rose avec halo, icônes/checks roses, badge vérifié rose, explosion de cœurs sur /success, pulse du CTA sticky.
+- Email du compte Stripe : blancheballand@yahoo.com (à utiliser lors du claim du sandbox via onboarding_url).
+
 ## Implémenté (09/08/2026 — update Stripe)
 - Paiement réel branché : sandbox Stripe claimable (compte FR, produit « Lina — Accès Découverte », prix one-time 1,03 €, lookup_key `lina_acces_decouverte`). Routes backend : POST /api/payments/checkout, GET /api/payments/status/{session_id} (polling + fallback Stripe), POST /api/stripe/webhook (idempotent). Transactions tracées dans Mongo `payment_transactions`.
 - Tax mode sélectionné : Stripe gère tout (taxe + conformité), fallback automatique vers « Stripe calcule seulement » si inéligible.

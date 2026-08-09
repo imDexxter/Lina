@@ -15,7 +15,7 @@ export const Marquee = () => (
               className="flex items-center whitespace-nowrap font-display text-sm font-medium uppercase tracking-[0.25em] text-white/30"
             >
               <span className="px-6">{t}</span>
-              <span className="h-1 w-1 rounded-full bg-white/25" />
+              <span className="h-1 w-1 rounded-full bg-blush/70" />
             </span>
           ))}
         </div>

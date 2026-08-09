@@ -21,6 +21,7 @@ module.exports = {
         surface: { DEFAULT: '#101010', 2: '#151515' },
         line: 'rgba(255,255,255,.08)',
         dim: 'rgba(255,255,255,.58)',
+        blush: { DEFAULT: '#FF5C8D', soft: '#FF7BAC' },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

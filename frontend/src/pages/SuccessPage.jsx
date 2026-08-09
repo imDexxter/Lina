@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
+import { Heart, Loader2 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { offer } from "../lib/config";
 
@@ -55,12 +55,28 @@ export default function SuccessPage() {
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", damping: 14, stiffness: 200, delay: 0.1 }}
-            className="flex h-20 w-20 items-center justify-center rounded-full border border-white/15 bg-surface"
+            className="relative flex h-20 w-20 items-center justify-center rounded-full border border-blush/40 bg-surface shadow-[0_0_50px_rgba(255,92,141,.35)]"
           >
+            {[...Array(6)].map((_, k) => (
+              <motion.span
+                key={k}
+                initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  x: Math.cos((k / 6) * Math.PI * 2) * 64,
+                  y: Math.sin((k / 6) * Math.PI * 2) * 64,
+                  scale: [0, 1, 0.6],
+                }}
+                transition={{ duration: 1.1, delay: 0.55, ease: "easeOut" }}
+                className="absolute"
+              >
+                <Heart className="h-3.5 w-3.5 fill-blush text-blush" />
+              </motion.span>
+            ))}
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
               <motion.path
                 d="M4 12.5l5 5L20 6.5"
-                stroke="#ffffff"
+                stroke="#FF5C8D"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -97,7 +113,7 @@ export default function SuccessPage() {
               href={offer.telegramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink transition-transform duration-200 active:scale-[0.98]"
+              className="btn-cta block"
             >
               ouvrir mon espace privé
             </a>

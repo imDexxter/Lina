@@ -41,20 +41,26 @@ export const ContentCard = ({ item, index, onOpen }) => {
         />
       </div>
 
+      {item.tag && (
+        <span className="absolute left-2.5 top-2.5 rounded-full bg-blush/90 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white shadow-[0_4px_16px_rgba(255,92,141,.45)]">
+          {item.tag}
+        </span>
+      )}
+
       {locked && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/25">
           <motion.div
             animate={shake ? { x: [0, -4, 4, -3, 3, 0] } : { x: 0 }}
             transition={{ duration: 0.42 }}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/45 backdrop-blur-md"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-blush/50 bg-black/45 shadow-[0_0_26px_rgba(255,92,141,.35)] backdrop-blur-md"
           >
             {item.type === "video" ? (
-              <Play className="ml-0.5 h-4 w-4 fill-white text-white" />
+              <Play className="ml-0.5 h-4 w-4 fill-blush text-blush" />
             ) : (
-              <Lock className="h-4 w-4 text-white" strokeWidth={2} />
+              <Lock className="h-4 w-4 text-blush" strokeWidth={2} />
             )}
           </motion.div>
-          <span className="rounded-full bg-black/50 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/85 backdrop-blur-md">
+          <span className="rounded-full bg-blush/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">
             {item.type === "video" ? "aperçu vidéo" : "privé"}
           </span>
         </div>

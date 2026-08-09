@@ -110,7 +110,7 @@ export default function CheckoutPage() {
             data-testid="checkout-pay-button"
             onClick={startCheckout}
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink transition-all duration-200 active:scale-[0.98] disabled:opacity-70"
+            className="btn-cta flex items-center justify-center gap-2 disabled:opacity-70"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             Continuer vers le paiement

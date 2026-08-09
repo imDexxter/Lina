@@ -58,16 +58,16 @@ export const OfferReveal = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.3 }}
-          className="mt-8 w-full rounded-[22px] border border-line bg-surface p-6"
+          className="glow-blush mt-6 w-full rounded-[22px] border border-blush/25 bg-surface px-6 py-5"
         >
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
             Accès découverte
           </p>
-          <div className="mt-3 flex items-baseline justify-center gap-2">
+          <div className="mt-2 flex items-baseline justify-center gap-2">
             {REFERENCE_PRICE && (
               <span className="text-lg text-white/35 line-through">{formatPrice(REFERENCE_PRICE)}</span>
             )}
-            <span data-testid="offer-price" className="font-display text-5xl font-bold tracking-tight">
+            <span data-testid="offer-price" className="font-display text-4xl font-bold tracking-tight text-blush">
               {price}
             </span>
           </div>
@@ -90,9 +90,9 @@ export const OfferReveal = () => {
               transition={{ duration: 0.4, delay: 0.5 + i * 0.08 }}
               className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3"
             >
-              <b.icon className="h-4 w-4 shrink-0 text-white/70" strokeWidth={1.75} />
+              <b.icon className="h-4 w-4 shrink-0 text-blush" strokeWidth={1.75} />
               <span className="flex-1 text-sm text-white/85">{b.label}</span>
-              <Check className="h-3.5 w-3.5 text-white/40" />
+              <Check className="h-3.5 w-3.5 text-blush/70" />
             </motion.li>
           ))}
         </ul>
@@ -106,7 +106,7 @@ export const OfferReveal = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
           whileTap={{ scale: 0.97 }}
-          className="w-full rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink"
+          className="btn-cta"
         >
           Accéder au contenu — {formatPrice(offer.introPrice)}
         </motion.button>

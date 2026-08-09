@@ -25,6 +25,12 @@ export const ASSETS = {
   lina3: "/assets/lina-3.jpg",
   lina4: "/assets/lina-4.jpg",
   lina5: "/assets/lina-5.jpg",
+  c1: "/assets/lina-c1.jpg",
+  c2: "/assets/lina-c2.jpg",
+  c3: "/assets/lina-c3.jpg",
+  c4: "/assets/lina-c4.jpg",
+  c5: "/assets/lina-c5.jpg",
+  c6: "/assets/lina-c6.jpg",
 };
 
 const PROFILE_KEY = "lina_profile";
