@@ -1,0 +1,117 @@
+import { useEffect, useState } from "react";
+import { animate, motion } from "framer-motion";
+import { Images, Sparkles, Ghost, Send, Phone, Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { offer, formatPrice, ASSETS, loadProfile, REFERENCE_PRICE, RECURRING_PRICE, RECURRING_INTERVAL } from "../lib/config";
+
+export const OfferReveal = () => {
+  const navigate = useNavigate();
+  const profile = loadProfile();
+  const [price, setPrice] = useState("1");
+
+  useEffect(() => {
+    const controls = animate(1, offer.introPrice, {
+      duration: 1.15,
+      delay: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setPrice(formatPrice(v)),
+    });
+    return () => controls.stop();
+  }, []);
+
+  const benefits = [
+    { icon: Images, label: "Photos privées" },
+    { icon: Sparkles, label: "Contenu exclusif" },
+    { icon: Ghost, label: "Snap privé" },
+    { icon: Send, label: "Accès Telegram" },
+    ...(offer.includesCall ? [{ icon: Phone, label: "Appel privé offert" }] : []),
+  ];
+
+  return (
+    <motion.div
+      data-testid="offer-reveal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="flex flex-1 flex-col px-6 pt-8"
+    >
+      <div className="flex flex-col items-center text-center">
+        <motion.img
+          src={ASSETS.avatar}
+          alt="Lina"
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", damping: 16, stiffness: 200 }}
+          className="h-16 w-16 rounded-full border border-white/15 object-cover object-top"
+          draggable="false"
+        />
+        <motion.h1
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-5 font-display text-2xl font-bold tracking-tight"
+        >
+          ton accès est prêt{profile?.username ? `, ${profile.username}` : ""}
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.3 }}
+          className="mt-8 w-full rounded-[22px] border border-line bg-surface p-6"
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
+            Accès découverte
+          </p>
+          <div className="mt-3 flex items-baseline justify-center gap-2">
+            {REFERENCE_PRICE && (
+              <span className="text-lg text-white/35 line-through">{formatPrice(REFERENCE_PRICE)}</span>
+            )}
+            <span data-testid="offer-price" className="font-display text-5xl font-bold tracking-tight">
+              {price}
+            </span>
+          </div>
+          {RECURRING_PRICE && RECURRING_INTERVAL && (
+            <p className="mt-3 text-xs leading-relaxed text-white/60">
+              Aujourd'hui : {formatPrice(offer.introPrice)} — puis {formatPrice(RECURRING_PRICE)}/
+              {RECURRING_INTERVAL}. Annulation selon les conditions de l'offre.
+            </p>
+          )}
+          <p className="mt-2.5 text-xs text-white/45">accès immédiat après paiement</p>
+        </motion.div>
+
+        <ul className="mt-4 w-full space-y-2 text-left">
+          {benefits.map((b, i) => (
+            <motion.li
+              key={b.label}
+              data-testid={`offer-benefit-${i}`}
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 + i * 0.08 }}
+              className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3"
+            >
+              <b.icon className="h-4 w-4 shrink-0 text-white/70" strokeWidth={1.75} />
+              <span className="flex-1 text-sm text-white/85">{b.label}</span>
+              <Check className="h-3.5 w-3.5 text-white/40" />
+            </motion.li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-auto pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-5">
+        <motion.button
+          data-testid="offer-access-button"
+          onClick={() => navigate("/checkout")}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full rounded-full bg-white py-4 font-display text-sm font-bold uppercase tracking-wide text-ink"
+        >
+          Accéder au contenu — {formatPrice(offer.introPrice)}
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+};
+;
