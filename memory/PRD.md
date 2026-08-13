@@ -25,6 +25,10 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Visiteur social (Instagram/Snap/TikTok) sur smartphone, veut un aperçu rapide et un accès fluide.
 - Lina (créatrice) : connectera paiement + Telegram plus tard.
 
+## Implémenté (13/08/2026 — vérification d'âge)
+- Age gate à l'entrée du site (toutes routes) : overlay plein écran « Contenu adulte », bouton « J'ai 18 ans ou plus » / « Quitter » (→ Google), choix persisté en localStorage (lina_age_ok).
+- Formulaire : checkbox obligatoire « Je confirme avoir 18 ans ou plus… » avant Continuer, avec message d'erreur si non cochée.
+
 ## Implémenté (13/08/2026 — pivot Telegram direct)
 - Paiement retiré du parcours : le CTA de l'offre redirige directement vers https://t.me/mariaprvv avec le texte « Réserve ta place sur mon canal ». Les routes Stripe backend restent en place mais dormantes (réactivables). telegramUrl = t.me/mariaprvv.
 - Galerie : 24 publications (2 nouvelles cartes HARD c9/c10 croppées de vraies photos).

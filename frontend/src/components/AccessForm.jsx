@@ -7,6 +7,7 @@ export const AccessForm = ({ onDone }) => {
   const existing = loadProfile();
   const [username, setUsername] = useState(existing?.username || "");
   const [email, setEmail] = useState(existing?.email || "");
+  const [adult, setAdult] = useState(false);
   const [errors, setErrors] = useState({});
 
   const submit = (e) => {
@@ -14,6 +15,7 @@ export const AccessForm = ({ onDone }) => {
     const next = {};
     if (username.trim().length < 2) next.username = "Choisis un pseudo (2 caractères min.)";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) next.email = "Entre un email valide";
+    if (!adult) next.adult = "Tu dois confirmer avoir 18 ans ou plus";
     setErrors(next);
     if (Object.keys(next).length) return;
     saveProfile({ username: username.trim(), email: email.trim(), createdAt: new Date().toISOString() });
@@ -85,6 +87,28 @@ export const AccessForm = ({ onDone }) => {
       </div>
 
       <div className="mt-auto pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-8">
+        <label
+          data-testid="access-adult-checkbox"
+          className={`mb-4 flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3 transition-colors duration-200 ${
+            errors.adult ? "border-red-400/50" : "border-line bg-surface"
+          }`}
+        >
+          <input
+            type="checkbox"
+            checked={adult}
+            onChange={(e) => setAdult(e.target.checked)}
+            className="h-4 w-4 shrink-0 accent-[#FF5C8D]"
+          />
+          <span className="text-xs leading-snug text-white/70">
+            Je confirme avoir <span className="font-semibold text-white">18 ans ou plus</span> et
+            accepter de voir du contenu adulte.
+          </span>
+        </label>
+        {errors.adult && (
+          <p data-testid="access-adult-error" className="-mt-2 mb-3 text-xs text-red-300/90">
+            {errors.adult}
+          </p>
+        )}
         <button
           data-testid="access-continue-button"
           type="submit"

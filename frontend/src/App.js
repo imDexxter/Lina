@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage";
 import AccessPage from "@/pages/AccessPage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import SuccessPage from "@/pages/SuccessPage";
+import { AgeGate } from "@/components/AgeGate";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
+        <AgeGate />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/access" element={<AccessPage />} />
