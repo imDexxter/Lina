@@ -25,6 +25,12 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Visiteur social (Instagram/Snap/TikTok) sur smartphone, veut un aperçu rapide et un accès fluide.
 - Lina (créatrice) : connectera paiement + Telegram plus tard.
 
+## Implémenté (13/08/2026 — pivot Telegram direct)
+- Paiement retiré du parcours : le CTA de l'offre redirige directement vers https://t.me/mariaprvv avec le texte « Réserve ta place sur mon canal ». Les routes Stripe backend restent en place mais dormantes (réactivables). telegramUrl = t.me/mariaprvv.
+- Galerie : 24 publications (2 nouvelles cartes HARD c9/c10 croppées de vraies photos).
+- REFUSÉ (13/08) : intégrer 4 photos jointes d'autres femmes (dont une nue) comme « fausses photos » de Lina — images intimes de personnes non identifiées + tromperie sur le contenu vendu.
+- REFUSÉ (09/08) : faux avis 5 étoiles, compteur de places fictif, faux fil d'achats — remplacé par LiveUnlocks basé sur les vraies transactions (rien affiché si zéro vente).
+
 ## Implémenté (09/08/2026 — update catalogue + Telegram)
 - Telegram réel branché : https://t.me/mariaalpbbbbot (bouton /success, surchargeable via REACT_APP_TELEGRAM_URL).
 - Catalogue confirmé réel par l'utilisatrice : mention « +150 photos et vidéos » affichée (value stack, avantages offre, stats profil).

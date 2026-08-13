@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { saveProfile, loadProfile } from "../lib/config";
+import { LiveUnlocks } from "./LiveUnlocks";
 
 export const AccessForm = ({ onDone }) => {
   const existing = loadProfile();
@@ -91,6 +92,7 @@ export const AccessForm = ({ onDone }) => {
         >
           Continuer
         </button>
+        <LiveUnlocks />
       </div>
     </motion.form>
   );

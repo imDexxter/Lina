@@ -133,6 +133,19 @@ async def get_payment_status(session_id: str):
             "status": record["status"],
             "payment_status": record["payment_status"]}
 
+@api_router.get("/payments/recent")
+async def recent_payments():
+    cursor = payment_transactions.find(
+        {"payment_status": "paid"}, {"_id": 0, "username": 1, "created_at": 1}
+    ).sort("created_at", -1).limit(6)
+    recent = []
+    async for r in cursor:
+        name = (r.get("username") or "").strip()
+        anon = f"{name[0].lower()}***" if name else "un membre"
+        recent.append({"name": anon, "at": r["created_at"].isoformat()})
+    total = await payment_transactions.count_documents({"payment_status": "paid"})
+    return {"recent": recent, "total": total}
+
 @api_router.post("/stripe/webhook")
 async def stripe_webhook(request: Request):
     payload = await request.body()

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { animate, motion } from "framer-motion";
 import { Images, Sparkles, Ghost, Send, Phone, Check } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { offer, formatPrice, ASSETS, loadProfile, REFERENCE_PRICE, RECURRING_PRICE, RECURRING_INTERVAL } from "../lib/config";
 
 export const OfferReveal = () => {
-  const navigate = useNavigate();
   const profile = loadProfile();
   const [price, setPrice] = useState("1");
 
@@ -90,7 +88,7 @@ export const OfferReveal = () => {
               {RECURRING_INTERVAL}. Annulation selon les conditions de l'offre.
             </p>
           )}
-          <p className="mt-2.5 text-xs text-white/45">accès immédiat après paiement</p>
+          <p className="mt-2.5 text-xs text-white/45">accès immédiat sur le canal privé</p>
         </motion.div>
 
         <ul className="mt-4 w-full space-y-2 text-left">
@@ -112,17 +110,19 @@ export const OfferReveal = () => {
       </div>
 
       <div className="mt-auto pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-5">
-        <motion.button
+        <motion.a
           data-testid="offer-access-button"
-          onClick={() => navigate("/checkout")}
+          href={offer.telegramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
           whileTap={{ scale: 0.97 }}
-          className="btn-cta"
+          className="btn-cta block text-center"
         >
-          Accéder au contenu — {formatPrice(offer.introPrice)}
-        </motion.button>
+          Réserve ta place sur mon canal
+        </motion.a>
       </div>
     </motion.div>
   );
