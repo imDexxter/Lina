@@ -58,6 +58,10 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Aperçu 100 % local (URL.createObjectURL, rien envoyé au serveur) : image floutée + pop-up « Get my surprise » → reveal doux (blur 28px → 0, scale 1.12 → 1, 1,4 s) → bouton « Show more » vers offer.surpriseUrl (https://www.getmyview.com, surchargeable via REACT_APP_SURPRISE_URL).
 - Replay / Change image ; respecte prefers-reduced-motion. Test IDs : constants/testIds/surprise.js.
 
+## Implémenté (02/10/2026 — déploiement statique)
+- frontend/public/_redirects (Netlify / Cloudflare Pages) + frontend/vercel.json (Vercel) : toutes les routes renvoient index.html, pour que /surprise, /access… marchent en accès direct ou après rechargement.
+- Réglages hébergeur : root `frontend`, build `yarn build`, sortie `build`. Le backend n'est pas requis pour afficher le site (seuls /checkout et /success en dépendent).
+
 ## Backlog
 - P0 : claimer le compte Stripe (onboarding_url) + KYC avant déploiement ; les clés passent en live automatiquement après approbation.
 - P0 : fournir TELEGRAM_URL / SNAP_URL réels (env REACT_APP_TELEGRAM_URL, REACT_APP_SNAP_URL).
