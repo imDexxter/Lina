@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage";
 import AccessPage from "@/pages/AccessPage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import SuccessPage from "@/pages/SuccessPage";
+import SurprisePage from "@/pages/SurprisePage";
 import { AgeGate } from "@/components/AgeGate";
 
 const ScrollToTop = () => {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/access" element={<AccessPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<SuccessPage />} />
+          <Route path="/surprise" element={<SurprisePage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
