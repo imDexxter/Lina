@@ -53,6 +53,11 @@ Construire la V1 frontend complète de « LINA PRIVATE » : passerelle mobile-fi
 - Hero changée : lina-5 (bibliothèque, regard caméra, plus suggestive).
 - Onboarding Stripe (claim) : voir onboarding_url dans /tmp/sandbox.json — [lien partagé au user dans le résumé].
 
+## Implémenté (02/10/2026 — Surprise uploader)
+- Nouvelle route /surprise (SurprisePage.jsx) : la créatrice choisit une image (drag & drop ou clic, image/* ≤ 15 Mo) + case « I own this image… » obligatoire.
+- Aperçu 100 % local (URL.createObjectURL, rien envoyé au serveur) : image floutée + pop-up « Get my surprise » → reveal doux (blur 28px → 0, scale 1.12 → 1, 1,4 s) → bouton « Show more » vers offer.surpriseUrl (https://www.getmyview.com, surchargeable via REACT_APP_SURPRISE_URL).
+- Replay / Change image ; respecte prefers-reduced-motion. Test IDs : constants/testIds/surprise.js.
+
 ## Backlog
 - P0 : claimer le compte Stripe (onboarding_url) + KYC avant déploiement ; les clés passent en live automatiquement après approbation.
 - P0 : fournir TELEGRAM_URL / SNAP_URL réels (env REACT_APP_TELEGRAM_URL, REACT_APP_SNAP_URL).

@@ -7,6 +7,7 @@ export const offer = {
   telegramUrl: process.env.REACT_APP_TELEGRAM_URL || "https://t.me/mariaprvv",
   snapUrl: process.env.REACT_APP_SNAP_URL || "https://www.snapchat.com/add/marina_prvvv",
   includesCall: true,
+  surpriseUrl: process.env.REACT_APP_SURPRISE_URL || "https://www.getmyview.com",
 };
 
 export const INTRO_PRICE = offer.introPrice;
